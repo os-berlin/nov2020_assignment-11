@@ -1,2 +1,2 @@
 # nov2020_assignment-11
-MavenMVC_Transactions
+MavenMVC_ "Online Bank" Transactions example
