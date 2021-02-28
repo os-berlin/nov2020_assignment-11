@@ -16,28 +16,28 @@ public class TransactionService {
 
 	@Autowired
 	private TransactionRepository transactionRepo;
-	
+		
+	public List<Transaction> getAllTransactionsByDate() {		
+		List<Transaction> transactions = transactionRepo.findAll();		
+		sortTransactionsByDate(transactions);		
+		return transactions;
+	}
 
-	
-	public List<Transaction> getAllTransactionsByDate() {
-		
-		List<Transaction> transactionsByDate = transactionRepo.findAll();
-		
+	private void sortTransactionsByDate(List<Transaction> transactionsByDate) {
 		Collections.sort(transactionsByDate, new Comparator<Transaction>() {
 		    @Override
 		    public int compare(Transaction t1, Transaction t2) {
 		        return t1.getDate().compareTo(t2.getDate());
 		    }
 		});
-		
-		return transactionsByDate;
 	}
 
-	public Transaction getTransactionById(long transactionId) {
+	public Transaction getTransactionById(long transactionId) {		
+		Optional<Transaction> transactionById = 
+				transactionRepo.findAll().stream()
+										 .filter(transaction -> transaction.getId().equals(transactionId))
+										 .findFirst();
 		
-		Optional<Transaction> transactionById = transactionRepo.findAll().stream()
-														   				 .filter(transaction -> transaction.getId().equals(transactionId))
-														   				 .findFirst();
 		return transactionById.orElse(null);
 	}
 
