@@ -19,6 +19,11 @@ public class TransactionController {
 	@Autowired
 	private TransactionService transactionService;
 
+	@GetMapping ("")
+	public String homePage() {
+		return "homePage";
+	}
+	
 	@GetMapping("/transactions")
 	public String getAllTransactionsByDate(ModelMap model) {
 		List<Transaction> allTransactions = transactionService.getAllTransactionsByDate();
