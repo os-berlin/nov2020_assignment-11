@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 	<head>
-		<title th:text="|Online Bank – Transaction ID: ${transactionById.id}|"></title>
+		<title th:text="|Online Bank – Transaction ID: ${transactionById.id}|">DummyTitle for Online Bank</title>
 		<link rel="stylesheet" href="/css/transactions.css"/>
 	</head>
 	<body>
-		<h2 th:text="|Transaction ID: ${transactionById.id} (${transactionById.type == 'D' ? 'Debit' : 'Credit'})|"></h2>
+		<h2 th:text="|Transaction ID: ${transactionById.id} (${transactionById.type == 'D' ? 'Debit' : 'Credit'})|">DummyHeading for single Transaction</h2>
 		
 		<table>
 			<tr>
-				<td style="font-weight: bold;" th:text="|Date:|"></td>
-				<td th:text="${transactionById.date}"></td>
+				<td style="font-weight: bold;" th:text="|Date:|">DummyLabel for 'Date'</td>
+				<td th:text="${transactionById.date}">Date</td>
 			</tr>			
 			<tr>
-				<td style="font-weight: bold;" th:text="|Amount:|"></td>
-				<td th:text="${transactionById.type == 'D' ? transactionById.amount : '- ' + transactionById.amount}"></td>
+				<td style="font-weight: bold;" th:text="|Amount:|">DummyLabel for 'Amount'</td>
+				<td th:text="${transactionById.type == 'D' ? transactionById.amount : '- ' + transactionById.amount}">Funds in / Funds out</td>
 			</tr>
 			<tr>					
-				<td style="font-weight: bold;" th:text="|Description:|"></td>
-				<td th:text="${transactionById.description}"></td>
+				<td style="font-weight: bold;" th:text="|Description:|">DummyLabel for 'Description'</td>
+				<td th:text="${transactionById.description}">Description</td>
 			</tr>
 		</table>			
 		
-		<div><a th:href="@{'/transactions/'}" th:text="|back|"></a></div>
+		<div><a th:href="@{'/transactions/'}" th:text="|back|">'back' link</a></div>
 
 	</body>
 </html>

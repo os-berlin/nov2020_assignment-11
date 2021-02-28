@@ -17,11 +17,11 @@
 			</tr>
 			
 			<tr th:each="singleTransaction : ${transactions}">
-				<td><a th:href="@{'/transaction/' + ${singleTransaction.id}}" th:text="${singleTransaction.id}"></a></td>
-				<td th:text="${singleTransaction.date}"></td>
-				<td th:text="${singleTransaction.retailer}"></td>
-				<td th:text="${singleTransaction.type == 'C' ? singleTransaction.amount : '---'}"></td>
-				<td th:text="${singleTransaction.type == 'D' ? singleTransaction.amount : '---'}"></td>		
+				<td><a th:href="@{'/transaction/' + ${singleTransaction.id}}" th:text="${singleTransaction.id}">DummyID</a></td>
+				<td th:text="${singleTransaction.date}">DummyDate</td>
+				<td th:text="${singleTransaction.retailer}">DummyRetailer</td>
+				<td th:text="${singleTransaction.type == 'C' ? singleTransaction.amount : '---'}">Dummy Funds In</td>
+				<td th:text="${singleTransaction.type == 'D' ? singleTransaction.amount : '---'}">DummyFund Out</td>		
 			</tr>
 						
 		</table>
